@@ -8,43 +8,73 @@
   <meta name="author" content="Likhon Sheikh">
   <title>Likhon Sheikh</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <style>
-    body {
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
       background-color: #0d1117;
       color: #c9d1d9;
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
+      overflow-x: hidden;
+    }
+
+    #canvas-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       min-height: 100vh;
+      padding: 2rem;
       text-align: center;
     }
 
     h1 {
       color: #58a6ff;
       margin-bottom: 10px;
+      font-size: 3rem;
+      animation: fadeInUp 1s ease-out;
     }
 
     h2 {
       color: #8b949e;
       margin-top: 30px;
+      font-size: 2rem;
+      animation: fadeInUp 1s ease-out 0.2s;
     }
 
     p, ul {
       max-width: 600px;
       line-height: 1.6;
+      animation: fadeInUp 1s ease-out 0.4s;
     }
 
     a {
       color: #58a6ff;
       text-decoration: none;
       margin: 0 10px;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #1f6feb;
     }
 
     img {
       margin: 20px 0;
+      animation: fadeIn 1s ease-out;
     }
 
     ul {
@@ -54,6 +84,7 @@
 
     li {
       margin: 10px 0;
+      animation: fadeInUp 1s ease-out 0.6s;
     }
 
     .btn {
@@ -65,12 +96,14 @@
       text-transform: uppercase;
       font-weight: 600;
       margin-top: 30px;
-      transition: background-color 0.3s ease, color 0.3s ease;
+      transition: all 0.3s ease;
+      animation: pulse 2s infinite;
     }
 
     .btn:hover {
       background-color: #58a6ff;
       color: #0d1117;
+      transform: scale(1.05);
     }
 
     hr {
@@ -78,76 +111,140 @@
       height: 1px;
       background: #30363d;
       margin: 40px 0;
+      width: 100%;
+      max-width: 600px;
+    }
+
+    .icon {
+      margin-right: 10px;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
     }
   </style>
 </head>
 
 <body>
-  <div align="center">
+  <div id="canvas-container"></div>
+  <div class="content">
     <img src="https://raw.githubusercontent.com/likhositories/.github/main/profile/Untitled%20design.png" alt="Likhon Sheikh Profile Picture" width="200" height="200" style="border-radius: 50%; border: 4px solid #ddd; box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);">
 
     <h1>Likhon Sheikh</h1>
     <p>
-      <strong>Full-stack Developer • TypeScript & Python!</strong>
+      <strong><i class="fas fa-code icon"></i>Full-stack Developer • TypeScript & Python!</strong>
     </p>
 
-    <p align="center">
+    <p>
       <img src="https://github-stats-alpha.vercel.app/api/?username=likhon-xyz" alt="Likhon Github Stats">
     </p>
 
     <p>
-      <a href="https://github.com/likhositories"><img src="https://img.shields.io/github/followers/likhositories?style=for-the-badge&logo=github" alt="GitHub followers"></a>
-      <a href="https://twitter.com/likhondotxyz"><img src="https://img.shields.io/twitter/follow/likhondotxyz?style=for-the-badge&logo=x" alt="Twitter Follow"></a>
-      <a href="https://t.me/likhondotxyz"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram" alt="Telegram"></a>
-      <img src="https://komarev.com/ghpvc/?username=likhositories&color=blueviolet&style=for-the-badge" alt="Profile Views">
+      <a href="https://github.com/likhositories"><i class="fab fa-github icon"></i>GitHub</a>
+      <a href="https://twitter.com/likhondotxyz"><i class="fab fa-twitter icon"></i>Twitter</a>
+      <a href="https://t.me/likhondotxyz"><i class="fab fa-telegram icon"></i>Telegram</a>
     </p>
 
     <hr>
 
-    <h2>About Me</h2>
+    <h2><i class="fas fa-user icon"></i>About Me</h2>
     <p>
       I'm a <em>passionate developer</em> with a keen interest in crafting <strong>innovative solutions</strong> using cutting-edge technologies. My expertise lies in <code>TypeScript</code> and <code>Python</code> development, with a focus on creating <u>robust, scalable, and efficient web applications</u> that push the boundaries of what's possible in the digital realm.
     </p>
 
-    <h2>🛠️ Skills</h2>
+    <h2><i class="fas fa-tools icon"></i>Skills</h2>
     <p>
       <img src="https://skillicons.dev/icons?i=ts,py,js,react,nodejs,express,mongodb,postgres&theme=dark" alt="Tech Stack">
     </p>
 
-    <h2>🏆 Achievements</h2>
+    <h2><i class="fas fa-trophy icon"></i>Achievements</h2>
     <ul>
-      <li>🌟 Successfully delivered <strong>50+ projects</strong> for clients worldwide</li>
-      <li>🚀 Contributed to <em>several open-source projects</em> in the <code>TypeScript</code> and <code>Python</code> ecosystems</li>
-      <li>🏅 Recognized as a <strong>top contributor</strong> in the <code>React</code> community</li>
+      <li><i class="fas fa-star icon"></i>Successfully delivered <strong>50+ projects</strong> for clients worldwide</li>
+      <li><i class="fas fa-rocket icon"></i>Contributed to <em>several open-source projects</em> in the <code>TypeScript</code> and <code>Python</code> ecosystems</li>
+      <li><i class="fas fa-medal icon"></i>Recognized as a <strong>top contributor</strong> in the <code>React</code> community</li>
     </ul>
 
-    <h2>📚 Latest</h2>
+    <h2><i class="fas fa-book icon"></i>Latest</h2>
     <p>
-      <a href="https://likhonsheikh.com/blog/mastering-typescript"><img src="https://img.shields.io/badge/Mastering%20TypeScript-Advanced%20Tips%20and%20Tricks-blue?style=for-the-badge&logo=typescript" alt="TypeScript Blog"></a>
-      <a href="https://likhonsheikh.com/blog/scalable-python-apps"><img src="https://img.shields.io/badge/Building%20Scalable%20Python%20Applications-Best%20Practices-green?style=for-the-badge&logo=python" alt="Python Blog"></a>
-      <a href="https://likhonsheikh.com/blog/react-performance"><img src="https://img.shields.io/badge/React%20Performance-Optimization%20Techniques-cyan?style=for-the-badge&logo=react" alt="React Blog"></a>
+      <a href="https://likhonsheikh.com/blog/mastering-typescript"><i class="fab fa-js icon"></i>Mastering TypeScript</a>
+      <a href="https://likhonsheikh.com/blog/scalable-python-apps"><i class="fab fa-python icon"></i>Scalable Python Apps</a>
+      <a href="https://likhonsheikh.com/blog/react-performance"><i class="fab fa-react icon"></i>React Performance</a>
     </p>
 
-    <h2>🌐 Connect</h2>
+    <h2><i class="fas fa-globe icon"></i>Connect</h2>
     <p>
-      <a href="https://likhonsheikh.com"><img src="https://img.shields.io/badge/Portfolio-likhonsheikh.com-blue?style=for-the-badge&logo=google-chrome" alt="Portfolio"></a>
-      <a href="https://github.com/likhositories"><img src="https://img.shields.io/badge/GitHub-likhositories-blue?style=for-the-badge&logo=github" alt="GitHub"></a>
-      <a href="https://twitter.com/likhondotxyz"><img src="https://img.shields.io/badge/Twitter-likhondotxyz-blue?style=for-the-badge&logo=x" alt="Twitter"></a>
-      <a href="mailto:me@likhonsheikh.com"><img src="https://img.shields.io/badge/Email-me%40likhonsheikh.com-blue?style=for-the-badge&logo=gmail" alt="Email"></a>
+      <a href="https://likhonsheikh.com"><i class="fas fa-laptop icon"></i>Portfolio</a>
+      <a href="https://github.com/likhositories"><i class="fab fa-github icon"></i>GitHub</a>
+      <a href="https://twitter.com/likhondotxyz"><i class="fab fa-twitter icon"></i>Twitter</a>
+      <a href="mailto:me@likhonsheikh.com"><i class="fas fa-envelope icon"></i>Email</a>
     </p>
 
-    <h2>🚀 Collaborate</h2>
+    <h2><i class="fas fa-rocket icon"></i>Collaborate</h2>
     <p>
       I'm always <em>excited</em> about new opportunities and collaborations. Whether you're looking for a developer to bring your <strong>project to life</strong> or you're a fellow coder interested in <u>joining forces</u>, I'd love to hear from you!
     </p>
     <p>
-      <a href="https://likhonsheikh.com/contact" class="btn">Let's Build Something Awesome</a>
+      <a href="https://likhonsheikh.com/contact" class="btn"><i class="fas fa-hammer icon"></i>Let's Build Something Awesome</a>
     </p>
 
     <hr>
 
     <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=60&section=footer" alt="Wave Footer">
   </div>
+
+  <script>
+    // Three.js background animation
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.getElementById('canvas-container').appendChild(renderer.domElement);
+
+    const geometry = new THREE.BufferGeometry();
+    const vertices = [];
+    for (let i = 0; i < 10000; i++) {
+      vertices.push(THREE.MathUtils.randFloatSpread(2000));
+      vertices.push(THREE.MathUtils.randFloatSpread(2000));
+      vertices.push(THREE.MathUtils.randFloatSpread(2000));
+    }
+    geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+    const particles = new THREE.Points(geometry, new THREE.PointsMaterial({ color: 0x58a6ff, size: 2 }));
+    scene.add(particles);
+
+    camera.position.z = 1000;
+
+    function animate() {
+      requestAnimationFrame(animate);
+      particles.rotation.x += 0.0005;
+      particles.rotation.y += 0.0005;
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  </script>
 </body>
 
 </html>
